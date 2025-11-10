@@ -1,1 +1,1147 @@
-hello world!
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EngageCloud360 - Unify Your Customer Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0ea5e9',
+                        secondary: '#3b82f6',
+                        accent: '#06b6d4',
+                        success: '#10b981',
+                        dark: '#020617',
+                        'dark-light': '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #020617;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .gradient-border {
+            position: relative;
+            background: linear-gradient(180deg, rgba(14,165,233,0.1) 0%, rgba(6,182,212,0.1) 100%);
+            border: 1px solid rgba(14,165,233,0.2);
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gradient-border:hover::before {
+            opacity: 1;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glow {
+            box-shadow: 0 0 30px rgba(14,165,233,0.3);
+        }
+        
+        .grid-pattern {
+            background-image: 
+                linear-gradient(rgba(14,165,233,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(14,165,233,0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(14,165,233,0.3); }
+            50% { box-shadow: 0 0 40px rgba(14,165,233,0.6); }
+        }
+        
+        @keyframes slide-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .animate-pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        .animate-slide-up {
+            animation: slide-up 0.8s ease-out forwards;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: slide-up 0.5s ease-out;
+        }
+        
+        .feature-tab {
+            transition: all 0.3s;
+        }
+        
+        .feature-tab.active {
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+            color: white;
+        }
+        
+        .logo-ticker {
+            animation: scroll 30s linear infinite;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .perspective-card {
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+        
+        .perspective-card:hover {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+        
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+        
+        .video-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(14,165,233,0.2) 0%, rgba(6,182,212,0.2) 100%);
+            pointer-events: none;
+        }
+        
+        .counter {
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 transition-all duration-300 backdrop-blur-md bg-dark/80" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-primary/30 blur-lg rounded-full"></div>
+                        <div class="relative w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                            <i class="fas fa-cloud text-white text-xl"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-white">EngageCloud<span class="text-gradient">360</span></div>
+                        <div class="text-xs text-gray-400">Integrate. Engage. Achieve.</div>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#features" class="text-gray-300 hover:text-primary transition-colors font-medium">Features</a>
+                    <a href="#demo" class="text-gray-300 hover:text-primary transition-colors font-medium">Demo</a>
+                    <a href="#pricing" class="text-gray-300 hover:text-primary transition-colors font-medium">Pricing</a>
+                    <a href="#customers" class="text-gray-300 hover:text-primary transition-colors font-medium">Customers</a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition-colors font-medium">Resources</a>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-4">
+                    <button class="text-gray-300 hover:text-white transition-colors font-medium">Login</button>
+                    <button class="relative group">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-lg blur opacity-75 group-hover:opacity-100 transition"></div>
+                        <div class="relative bg-gradient-to-r from-primary to-accent px-6 py-2.5 rounded-lg font-semibold text-white">
+                            Get Started Free
+                        </div>
+                    </button>
+                </div>
+                
+                <button class="lg:hidden text-white" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-dark-light z-40 transform translate-x-full transition-transform duration-300 lg:hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#features" onclick="toggleMobileMenu()" class="text-2xl text-gray-300 hover:text-primary transition-colors">Features</a>
+            <a href="#demo" onclick="toggleMobileMenu()" class="text-2xl text-gray-300 hover:text-primary transition-colors">Demo</a>
+            <a href="#pricing" onclick="toggleMobileMenu()" class="text-2xl text-gray-300 hover:text-primary transition-colors">Pricing</a>
+            <a href="#customers" onclick="toggleMobileMenu()" class="text-2xl text-gray-300 hover:text-primary transition-colors">Customers</a>
+            <button class="bg-gradient-to-r from-primary to-accent px-8 py-3 rounded-lg font-semibold text-white">
+                Get Started Free
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-20">
+        <!-- Grid Background -->
+        <div class="absolute inset-0 grid-pattern opacity-30"></div>
+        
+        <!-- Animated Orbs -->
+        <div class="absolute top-20 left-10 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary/10 rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12 animate-slide-up">
+                    <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-6 py-2 mb-8">
+                        <span class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                        </span>
+                        <span class="text-primary font-semibold">Now Live - New AI Features Released</span>
+                    </div>
+                    
+                    <h1 class="text-6xl md:text-8xl font-black mb-8 leading-tight">
+                        One Platform.
+                        <br />
+                        <span class="text-gradient">Infinite Possibilities.</span>
+                    </h1>
+                    
+                    <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-4xl mx-auto leading-relaxed">
+                        Stop juggling 10+ tools. EngageCloud360 unifies customer communication, marketing automation, 
+                        and analytics into one powerful platform. <span class="text-white font-semibold">Built for growth. Designed for scale.</span>
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
+                        <button class="group relative w-full sm:w-auto">
+                            <div class="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-xl blur-lg opacity-75 group-hover:opacity-100 transition animate-pulse-glow"></div>
+                            <div class="relative bg-gradient-to-r from-primary to-accent px-10 py-5 rounded-xl font-bold text-lg text-white flex items-center justify-center gap-3">
+                                Start Free Trial
+                                <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </button>
+                        <button class="group border-2 border-gray-700 hover:border-primary px-10 py-5 rounded-xl font-bold text-lg transition-all w-full sm:w-auto flex items-center justify-center gap-3">
+                            <i class="fas fa-play text-primary"></i>
+                            Watch 2-Min Demo
+                        </button>
+                    </div>
+                    
+                    <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-shield-alt text-success"></i>
+                            <span>Enterprise Security</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-bolt text-primary"></i>
+                            <span>Setup in 5 Minutes</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-credit-card text-accent"></i>
+                            <span>No Credit Card Required</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Interactive Dashboard Preview -->
+                <div class="relative animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent z-10"></div>
+                    <div class="relative rounded-2xl overflow-hidden border border-primary/20 shadow-2xl glow">
+                        <div class="bg-dark-light p-4 border-b border-gray-800 flex items-center gap-2">
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <div class="flex-1 text-center text-sm text-gray-500 font-mono">engagecloud360.com/dashboard</div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400" alt="Dashboard" class="w-full">
+                    </div>
+                    <!-- Floating Cards -->
+                    <div class="absolute -bottom-8 left-8 bg-dark-light/90 backdrop-blur-xl border border-primary/30 rounded-xl p-4 shadow-xl animate-float hidden md:block">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-success to-emerald-600 flex items-center justify-center">
+                                <i class="fas fa-arrow-up text-white"></i>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-success">+247%</div>
+                                <div class="text-sm text-gray-400">Response Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-8 right-8 bg-dark-light/90 backdrop-blur-xl border border-primary/30 rounded-xl p-4 shadow-xl animate-float hidden md:block" style="animation-delay: 1s;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                                <i class="fas fa-users text-white"></i>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold">12.5K</div>
+                                <div class="text-sm text-gray-400">Active Users</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <section id="customers" class="py-20 relative overflow-hidden border-y border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <p class="text-gray-400 text-sm uppercase tracking-wider mb-4">Trusted by Industry Leaders</p>
+            </div>
+            <div class="relative">
+                <div class="flex gap-12 logo-ticker">
+                    <div class="flex items-center gap-12 text-4xl text-gray-600">
+                        <i class="fab fa-microsoft"></i>
+                        <i class="fab fa-amazon"></i>
+                        <i class="fab fa-google"></i>
+                        <i class="fab fa-apple"></i>
+                        <i class="fab fa-meta"></i>
+                        <i class="fab fa-salesforce"></i>
+                        <i class="fab fa-shopify"></i>
+                        <i class="fab fa-stripe"></i>
+                        <!-- Duplicate for seamless loop -->
+                        <i class="fab fa-microsoft"></i>
+                        <i class="fab fa-amazon"></i>
+                        <i class="fab fa-google"></i>
+                        <i class="fab fa-apple"></i>
+                        <i class="fab fa-meta"></i>
+                        <i class="fab fa-salesforce"></i>
+                        <i class="fab fa-shopify"></i>
+                        <i class="fab fa-stripe"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Stats Section -->
+    <section class="py-32 relative">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="relative inline-block mb-4">
+                        <div class="absolute inset-0 bg-primary/20 blur-xl rounded-full"></div>
+                        <div class="relative text-6xl font-black text-gradient counter" data-target="99.9">0</div>
+                    </div>
+                    <div class="text-sm text-gray-400">% Uptime SLA</div>
+                </div>
+                <div class="text-center">
+                    <div class="relative inline-block mb-4">
+                        <div class="absolute inset-0 bg-accent/20 blur-xl rounded-full"></div>
+                        <div class="relative text-6xl font-black text-gradient counter" data-target="50">0</div>
+                    </div>
+                    <div class="text-sm text-gray-400">M+ Messages/Month</div>
+                </div>
+                <div class="text-center">
+                    <div class="relative inline-block mb-4">
+                        <div class="absolute inset-0 bg-success/20 blur-xl rounded-full"></div>
+                        <div class="relative text-6xl font-black text-gradient counter" data-target="10">0</div>
+                    </div>
+                    <div class="text-sm text-gray-400">K+ Companies</div>
+                </div>
+                <div class="text-center">
+                    <div class="relative inline-block mb-4">
+                        <div class="absolute inset-0 bg-secondary/20 blur-xl rounded-full"></div>
+                        <div class="relative text-6xl font-black text-gradient counter" data-target="98">0</div>
+                    </div>
+                    <div class="text-sm text-gray-400">% Satisfaction Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Showcase with Tabs -->
+    <section id="features" class="py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-7xl font-black mb-6">
+                    Everything You Need,
+                    <br />
+                    <span class="text-gradient">Nothing You Don't</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    9 powerful modules working seamlessly together. One platform that scales with you.
+                </p>
+            </div>
+            
+            <!-- Feature Tabs -->
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button class="feature-tab active px-6 py-3 rounded-lg font-semibold transition-all" onclick="switchTab(0)">
+                        <i class="fas fa-inbox mr-2"></i>Unified Inbox
+                    </button>
+                    <button class="feature-tab px-6 py-3 rounded-lg font-semibold bg-gray-800/50 hover:bg-gray-700/50 transition-all" onclick="switchTab(1)">
+                        <i class="fas fa-robot mr-2"></i>AI Assistant
+                    </button>
+                    <button class="feature-tab px-6 py-3 rounded-lg font-semibold bg-gray-800/50 hover:bg-gray-700/50 transition-all" onclick="switchTab(2)">
+                        <i class="fas fa-chart-line mr-2"></i>Analytics
+                    </button>
+                    <button class="feature-tab px-6 py-3 rounded-lg font-semibold bg-gray-800/50 hover:bg-gray-700/50 transition-all" onclick="switchTab(3)">
+                        <i class="fas fa-bullhorn mr-2"></i>Advertising
+                    </button>
+                    <button class="feature-tab px-6 py-3 rounded-lg font-semibold bg-gray-800/50 hover:bg-gray-700/50 transition-all" onclick="switchTab(4)">
+                        <i class="fas fa-calendar mr-2"></i>Social Media
+                    </button>
+                </div>
+                
+                <!-- Tab Content -->
+                <div class="relative">
+                    <!-- Tab 1: Unified Inbox -->
+                    <div class="tab-content active">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h3 class="text-4xl font-bold mb-6">Never Miss a Customer Message Again</h3>
+                                <p class="text-gray-400 text-lg mb-8">
+                                    Consolidate WhatsApp, Email, Instagram, Messenger, and more into one intelligent inbox. 
+                                    Smart filters, quick replies, and AI-powered prioritization keep your team efficient.
+                                </p>
+                                <div class="space-y-6">
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-filter text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-2">Smart Filtering</h4>
+                                            <p class="text-gray-400">Automatically categorize and prioritize messages based on urgency and context.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-bolt text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-2">Quick Replies</h4>
+                                            <p class="text-gray-400">Respond 3x faster with smart templates and suggested responses.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-users text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-2">Team Collaboration</h4>
+                                            <p class="text-gray-400">Assign conversations, add notes, and collaborate seamlessly.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-3xl"></div>
+                                <div class="relative rounded-2xl overflow-hidden border border-primary/30">
+                                    <img src="https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=800" alt="Inbox" class="w-full">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab 2: AI Assistant -->
+                    <div class="tab-content">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h3 class="text-4xl font-bold mb-6">AI That Actually Works For You</h3>
+                                <p class="text-gray-400 text-lg mb-8">
+                                    Let AI handle routine tasks while providing intelligent insights. Natural language processing, 
+                                    automated responses, and predictive analytics that save hours daily.
+                                </p>
+                                <div class="space-y-6">
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-brain text-secondary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-2">Smart Automation</h4>
+                                            <p class="text-gray-400">Automate repetitive tasks and focus on what matters most.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-lightbulb text-secondary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-2">Predictive Insights</h4>
+                                            <p class="text-gray-400">Get recommendations before you even ask.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-language text-secondary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-2">Natural Language</h4>
+                                            <p class="text-gray-400">Communicate with AI like you would with your team.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute inset-0 bg-gradient-to-br from-secondary/20 to-accent/20 rounded-3xl blur-3xl"></div>
+                                <div class="relative rounded-2xl overflow-hidden border border-secondary/30">
+                                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800" alt="AI" class="w-full">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab 3: Analytics -->
+                    <div class="tab-content">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h3 class="text-4xl font-bold mb-6">Data-Driven Decisions Made Easy</h3>
+                                <p class="text-gray-400 text-lg mb-8">
+                                    Comprehensive dashboards, custom reports, and predictive analytics. Track every metric 
+                                    that matters and make informed decisions in real-time.
+                                </p>
+                                <div class="space-y-6">
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-chart-pie text-accent"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-2">Custom Dashboards</h4>
+                                            <p class="text-gray-400">Build dashboards that show exactly what you need to see.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-clock text-accent"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-2">Real-Time Updates</h4>
+                                            <p class="text-gray-400">Monitor performance as it happens, not hours later.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-chart-line text-accent"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-2">Predictive Analytics</h4>
+                                            <p class="text-gray-400">Forecast trends and optimize your strategy proactively.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute inset-0 bg-gradient-to-br from-accent/20 to-primary/20 rounded-3xl blur-3xl"></div>
+                                <div class="relative rounded-2xl overflow-hidden border border-accent/30">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" alt="Analytics" class="w-full">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab 4: Advertising -->
+                    <div class="tab-content">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h3 class="text-4xl font-bold mb-6">Amplify Your Reach Across Platforms</h3>
+                                <p class="text-gray-400 text-lg mb-8">
+                                    Create, manage, and optimize ad campaigns across Facebook, Google, and more. 
+                                    A/B testing, budget tracking, and performance reports all in one place.
+                                </p>
+                                <div class="space-y-6">
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-bullseye text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-2">Multi-Platform Management</h4>
+                                            <p class="text-gray-400">Control all your ad campaigns from a single dashboard.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-vial text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-2">A/B Testing</h4>
+                                            <p class="text-gray-400">Test variations and optimize for maximum ROI.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-dollar-sign text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-2">Budget Optimization</h4>
+                                            <p class="text-gray-400">AI-powered budget allocation for best performance.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-3xl"></div>
+                                <div class="relative rounded-2xl overflow-hidden border border-primary/30">
+                                    <img src="https://images.unsplash.com/photo-1557838923-2985c318be48?w=800" alt="Advertising" class="w-full">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab 5: Social Media -->
+                    <div class="tab-content">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h3 class="text-4xl font-bold mb-6">Schedule Once, Publish Everywhere</h3>
+                                <p class="text-gray-400 text-lg mb-8">
+                                    Plan, schedule, and publish content across Instagram, Facebook, LinkedIn, and X. 
+                                    Content calendar, engagement analytics, and best-time posting all included.
+                                </p>
+                                <div class="space-y-6">
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-calendar-check text-secondary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-2">Content Calendar</h4>
+                                            <p class="text-gray-400">Visualize and manage your entire content strategy.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-clock text-secondary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-2">Best Time Posting</h4>
+                                            <p class="text-gray-400">AI suggests optimal posting times for maximum engagement.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-heart text-secondary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-2">Engagement Tracking</h4>
+                                            <p class="text-gray-400">Monitor likes, comments, and shares in real-time.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute inset-0 bg-gradient-to-br from-secondary/20 to-accent/20 rounded-3xl blur-3xl"></div>
+                                <div class="relative rounded-2xl overflow-hidden border border-secondary/30">
+                                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800" alt="Social" class="w-full">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- All Features Grid -->
+            <div class="mt-32">
+                <h3 class="text-3xl font-bold text-center mb-16">Plus 4 More Powerful Features</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="gradient-border rounded-2xl p-6 text-center">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-phone-alt text-2xl text-white"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Cloud Calling</h4>
+                        <p class="text-sm text-gray-400">VoIP calls with recording & transcription</p>
+                    </div>
+                    <div class="gradient-border rounded-2xl p-6 text-center">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-2xl text-white"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Visitor Intelligence</h4>
+                        <p class="text-sm text-gray-400">Track & analyze website visitors</p>
+                    </div>
+                    <div class="gradient-border rounded-2xl p-6 text-center">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-folder-open text-2xl text-white"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Media Library</h4>
+                        <p class="text-sm text-gray-400">Centralized asset management</p>
+                    </div>
+                    <div class="gradient-border rounded-2xl p-6 text-center">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-comments text-2xl text-white"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Message Templates</h4>
+                        <p class="text-sm text-gray-400">Pre-built customizable templates</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Testimonials -->
+    <section class="py-32 relative overflow-hidden bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-7xl font-black mb-6">
+                    Don't Just Take <span class="text-gradient">Our Word</span>
+                </h2>
+                <p class="text-xl text-gray-400">See what industry leaders are saying</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <div class="gradient-border rounded-2xl p-8 hover:scale-105 transition-transform">
+                    <div class="flex gap-1 mb-6">
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                    </div>
+                    <p class="text-gray-300 mb-8 text-lg leading-relaxed">
+                        "We consolidated 12 tools into EngageCloud360. Our team's productivity increased by 200% and we're saving $8K monthly. Best decision we made this year."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-accent"></div>
+                        <div>
+                            <div class="font-bold">Sarah Mitchell</div>
+                            <div class="text-sm text-gray-500">VP Marketing, TechCorp</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gradient-border rounded-2xl p-8 hover:scale-105 transition-transform">
+                    <div class="flex gap-1 mb-6">
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                    </div>
+                    <p class="text-gray-300 mb-8 text-lg leading-relaxed">
+                        "The AI assistant is incredible. It handles 70% of routine inquiries automatically, letting our team focus on complex customer needs. Game-changer."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-secondary to-accent"></div>
+                        <div>
+                            <div class="font-bold">James Rodriguez</div>
+                            <div class="text-sm text-gray-500">CEO, StartupXYZ</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gradient-border rounded-2xl p-8 hover:scale-105 transition-transform">
+                    <div class="flex gap-1 mb-6">
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                    </div>
+                    <p class="text-gray-300 mb-8 text-lg leading-relaxed">
+                        "Setup took literally 10 minutes. The interface is so intuitive, our entire team was proficient within a day. No lengthy training needed."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-accent to-primary"></div>
+                        <div>
+                            <div class="font-bold">Emily Chen</div>
+                            <div class="text-sm text-gray-500">Director, GrowthLabs</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-32 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-7xl font-black mb-6">
+                    Pricing That <span class="text-gradient">Scales With You</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Start free, upgrade when ready. No surprise fees. Cancel anytime.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Starter -->
+                <div class="gradient-border rounded-3xl p-8">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold mb-2">Starter</h3>
+                        <p class="text-gray-400 mb-6">Perfect for small teams testing the waters</p>
+                        <div class="flex items-baseline gap-2 mb-2">
+                            <span class="text-6xl font-black text-gradient">$0</span>
+                            <span class="text-gray-500">/month</span>
+                        </div>
+                        <p class="text-sm text-gray-500">Forever free</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-success"></i>
+                            <span>2 channel integrations</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-success"></i>
+                            <span>50 message templates</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-success"></i>
+                            <span>Basic analytics</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-success"></i>
+                            <span>Email support</span>
+                        </li>
+                        <li class="flex items-center gap-3 opacity-40">
+                            <i class="fas fa-times text-gray-600"></i>
+                            <span>AI Assistant</span>
+                        </li>
+                    </ul>
+                    <button class="w-full py-4 rounded-xl font-bold border-2 border-gray-700 hover:border-primary transition-all">
+                        Get Started Free
+                    </button>
+                </div>
+                
+                <!-- Professional -->
+                <div class="relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-3xl blur opacity-75"></div>
+                    <div class="relative bg-dark-light rounded-3xl p-8 border border-primary/50">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                            <span class="bg-gradient-to-r from-primary to-accent px-6 py-2 rounded-full text-sm font-bold">
+                                MOST POPULAR
+                            </span>
+                        </div>
+                        <div class="mb-8 pt-4">
+                            <h3 class="text-2xl font-bold mb-2">Professional</h3>
+                            <p class="text-gray-400 mb-6">For growing teams ready to scale</p>
+                            <div class="flex items-baseline gap-2 mb-2">
+                                <span class="text-6xl font-black text-gradient">$99</span>
+                                <span class="text-gray-500">/month</span>
+                            </div>
+                            <p class="text-sm text-gray-500">Billed annually or $129/mo</p>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check text-success"></i>
+                                <span>Unlimited channels</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check text-success"></i>
+                                <span>Unlimited templates</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check text-success"></i>
+                                <span>Advanced analytics</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check text-success"></i>
+                                <span>AI Assistant included</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check text-success"></i>
+                                <span>Priority support 24/7</span>
+                            </li>
+                        </ul>
+                        <button class="w-full py-4 rounded-xl font-bold bg-gradient-to-r from-primary to-accent hover:shadow-2xl transition-all">
+                            Start 14-Day Trial
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Enterprise -->
+                <div class="gradient-border rounded-3xl p-8">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+                        <p class="text-gray-400 mb-6">For organizations with custom needs</p>
+                        <div class="flex items-baseline gap-2 mb-2">
+                            <span class="text-6xl font-black text-gradient">Custom</span>
+                        </div>
+                        <p class="text-sm text-gray-500">Let's talk about your needs</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-success"></i>
+                            <span>Everything in Professional</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-success"></i>
+                            <span>Custom integrations</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-success"></i>
+                            <span>Dedicated account manager</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-success"></i>
+                            <span>SLA guarantees</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-success"></i>
+                            <span>White-label options</span>
+                        </li>
+                    </ul>
+                    <button class="w-full py-4 rounded-xl font-bold border-2 border-gray-700 hover:border-accent transition-all">
+                        Contact Sales
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id="demo" class="py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/10 to-secondary/10"></div>
+        <div class="absolute top-20 left-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-20 right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-5xl md:text-7xl font-black mb-8">
+                    Ready to <span class="text-gradient">10x</span> Your Engagement?
+                </h2>
+                <p class="text-xl text-gray-400 mb-12">
+                    Join 10,000+ companies already transforming their customer experience with EngageCloud360.
+                    Start your free trial today—no credit card required.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                    <button class="group relative w-full sm:w-auto">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-xl blur-lg opacity-75 group-hover:opacity-100 transition animate-pulse-glow"></div>
+                        <div class="relative bg-gradient-to-r from-primary to-accent px-12 py-5 rounded-xl font-bold text-xl text-white">
+                            Start Free Trial
+                        </div>
+                    </button>
+                    <button class="border-2 border-gray-700 hover:border-primary px-12 py-5 rounded-xl font-bold text-xl transition-all w-full sm:w-auto">
+                        Book a Demo
+                    </button>
+                </div>
+                <p class="text-gray-500 mt-8">14-day free trial • No credit card • Cancel anytime</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-light border-t border-gray-800 py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-5 gap-12 mb-16">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                            <i class="fas fa-cloud text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="text-xl font-bold">EngageCloud<span class="text-gradient">360</span></div>
+                            <div class="text-xs text-gray-500">Integrate. Engage. Achieve.</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        The all-in-one customer engagement platform trusted by 10,000+ companies worldwide.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-lg bg-gray-800 hover:bg-primary flex items-center justify-center transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-gray-800 hover:bg-primary flex items-center justify-center transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-gray-800 hover:bg-primary flex items-center justify-center transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-gray-800 hover:bg-primary flex items-center justify-center transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Product</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#features" class="hover:text-primary transition-colors">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-primary transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Integrations</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">API Docs</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Changelog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Company</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Careers</a></li>
+                        <li><a href="#customers" class="hover:text-primary transition-colors">Customers</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Legal</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">Privacy</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Terms</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Security</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">GDPR</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-gray-500 text-sm">© 2025 EngageCloud360. All rights reserved.</p>
+                <div class="flex items-center gap-6 text-sm text-gray-500">
+                    <span class="flex items-center gap-2">
+                        <i class="fas fa-shield-alt text-success"></i>
+                        SOC 2 Certified
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <i class="fas fa-lock text-primary"></i>
+                        GDPR Compliant
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('translate-x-full');
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                navbar.style.background = 'rgba(2, 6, 23, 0.8)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    if (window.innerWidth < 1024) {
+                        toggleMobileMenu();
+                    }
+                }
+            });
+        });
+
+        // Counter animation
+        const counters = document.querySelectorAll('.counter');
+        const animateCounter = (counter) => {
+            const target = parseFloat(counter.getAttribute('data-target'));
+            const duration = 2000;
+            const steps = 60;
+            const increment = target / steps;
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    counter.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    counter.textContent = target % 1 === 0 ? Math.floor(current) : current.toFixed(1);
+                }
+            }, duration / steps);
+        };
+
+        // Intersection Observer for counters
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // Tab switching
+        let currentTab = 0;
+        function switchTab(index) {
+            const tabs = document.querySelectorAll('.feature-tab');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs[currentTab].classList.remove('active');
+            tabs[currentTab].classList.add('bg-gray-800/50', 'hover:bg-gray-700/50');
+            contents[currentTab].classList.remove('active');
+            
+            tabs[index].classList.add('active');
+            tabs[index].classList.remove('bg-gray-800/50', 'hover:bg-gray-700/50');
+            contents[index].classList.add('active');
+            
+            currentTab = index;
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(30px)';
+                    setTimeout(() => {
+                        entry.target.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.gradient-border, .perspective-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
